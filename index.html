@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamza's Organic Farm Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #063b22;
+    --green-mid: #0d5a35;
+    --green-bright: #178a55;
+    --green-light: #91d8ad;
+    --gold: #e2b93b;
+    --cream: #f6f8f1;
+    --white: #ffffff;
+    --text-dark: #1c1c1c;
+    --text-mid: #444;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(6,59,34,0.97);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 78px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .brand-mark {
+    width: 92px; height: 66px;
+    border-radius: 12px;
+    background: transparent;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    box-shadow: none;
+    flex: 0 0 auto;
+    overflow: hidden;
+  }
+  .brand-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.65);
+    mix-blend-mode: screen;
+  }
+  .nav-logo > span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+  .nav-links {
+    display: flex; gap: 26px; list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.88);
+    text-decoration: none;
+    font-size: 0.88rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-light); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--text-dark) !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+  }
+  .nav-cta:hover { background: #e6c44a !important; color: var(--text-dark) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background:
+      linear-gradient(160deg, rgba(6,59,34,0.90) 0%, rgba(13,90,53,0.72) 48%, rgba(0,0,0,0.35) 100%),
+      url('noiler image.jpg') center/cover no-repeat;
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+    padding: 0 8%;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to top, var(--cream), transparent);
+  }
+  .hero-badge {
+    background: var(--gold);
+    color: var(--text-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 22px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    max-width: 700px;
+    margin-bottom: 24px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--green-light);
+  }
+  .hero p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.88);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 36px;
+    font-weight: 300;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 16px;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--text-dark);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,160,23,0.4); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,0.7);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 140px; right: 8%;
+    display: flex; gap: 40px;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat {
+    text-align: center;
+    color: var(--white);
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--green-light);
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 90px 8%; }
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-bright);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--green-dark);
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    max-width: 600px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+  .divider {
+    width: 60px; height: 4px;
+    background: linear-gradient(90deg, var(--green-bright), var(--gold));
+    border-radius: 2px;
+    margin: 18px 0 40px;
+  }
+
+  /* ── WHY ORGANIC ── */
+  .why-organic {
+    background: var(--white);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .why-img {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(26,74,46,0.2);
+  }
+  .why-img img {
+    width: 100%; height: 480px;
+    object-fit: cover;
+    display: block;
+  }
+  .why-img::after {
+    content: '';
+    position: absolute; inset: 0;
+    border: 3px solid var(--green-light);
+    border-radius: 12px;
+    transform: translate(12px, 12px);
+    z-index: -1;
+  }
+  .why-badge {
+    position: absolute; bottom: 24px; left: 24px;
+    background: var(--green-dark);
+    color: var(--white);
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-family: 'Playfair Display', serif;
+  }
+  .why-badge strong {
+    font-size: 1.8rem;
+    display: block;
+    color: var(--green-light);
+  }
+  .why-badge span { font-size: 0.8rem; opacity: 0.8; }
+  .problems-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-top: 10px;
+  }
+  .problem-card {
+    background: var(--cream);
+    border-left: 4px solid var(--green-bright);
+    padding: 16px 18px;
+    border-radius: 0 8px 8px 0;
+  }
+  .problem-card .label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #c0392b; margin-bottom: 4px;
+  }
+  .problem-card .solution-label {
+    color: var(--green-bright);
+  }
+  .problem-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.5; }
+
+  /* ── PRODUCTS ── */
+  .products {
+    background: var(--cream);
+  }
+  .products-header { text-align: center; }
+  .products-header .section-sub { margin: 0 auto; }
+  .products-header .divider { margin: 18px auto 50px; }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 10px;
+  }
+  .product-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .product-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(26,74,46,0.15); }
+  .product-img {
+    height: 220px; overflow: hidden; position: relative;
+  }
+  .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+  .product-card:hover .product-img img { transform: scale(1.06); }
+  .product-tag {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--gold); color: var(--text-dark);
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 2px;
+  }
+  .product-body { padding: 24px; }
+  .product-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--green-dark);
+    margin-bottom: 10px;
+  }
+  .product-body p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+  .product-footer {
+    padding: 0 24px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .product-link {
+    color: var(--green-bright); font-weight: 700; font-size: 0.85rem;
+    text-decoration: none; letter-spacing: 0.5px;
+    border-bottom: 2px solid transparent; transition: border-color 0.2s;
+  }
+  .product-link:hover { border-color: var(--green-bright); }
+  .product-icon { font-size: 1.6rem; }
+
+  /* ── MONTHLY PLAN ── */
+  .monthly-plan {
+    background: var(--white);
+  }
+  .plan-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 58px;
+    align-items: center;
+  }
+  .plan-media {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 22px 58px rgba(26,74,46,0.18);
+    position: relative;
+  }
+  .plan-media img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+  }
+  .plan-ribbon {
+    position: absolute;
+    left: 22px;
+    bottom: 22px;
+    background: rgba(26,74,46,0.94);
+    color: var(--white);
+    padding: 16px 20px;
+    border-radius: 8px;
+    max-width: 300px;
+  }
+  .plan-ribbon strong {
+    display: block;
+    color: var(--green-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.45rem;
+    margin-bottom: 4px;
+  }
+  .plan-steps {
+    display: grid;
+    gap: 14px;
+    margin: 30px 0;
+  }
+  .plan-step {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 16px;
+    align-items: start;
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 18px;
+    border-left: 4px solid var(--green-bright);
+  }
+  .step-num {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--green-dark);
+    color: var(--green-light);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+  }
+  .plan-step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--green-dark);
+    margin-bottom: 5px;
+  }
+  .plan-step p {
+    color: var(--text-mid);
+    line-height: 1.65;
+    font-size: 0.92rem;
+  }
+  .plan-note {
+    background: #fff8df;
+    border: 1px solid rgba(212,160,23,0.35);
+    border-radius: 10px;
+    padding: 18px 20px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  /* ── FEED INGREDIENTS ── */
+  .ingredients {
+    background: var(--green-dark);
+    color: var(--white);
+  }
+  .ingredients .section-tag { color: var(--green-light); }
+  .ingredients .section-title { color: var(--white); }
+  .ingredients .divider { background: linear-gradient(90deg, var(--green-light), var(--gold)); }
+  .ingredients-layout {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start;
+  }
+  .ingredients-intro { color: rgba(255,255,255,0.75); line-height: 1.8; font-weight: 300; font-size: 1rem; }
+  .ingredients-table {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .ing-row {
+    display: grid; grid-template-columns: 1.2fr 2fr;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.2s;
+  }
+  .ing-row:last-child { border-bottom: none; }
+  .ing-row:hover { background: rgba(255,255,255,0.05); }
+  .ing-name {
+    padding: 14px 20px;
+    font-weight: 700; font-size: 0.88rem;
+    color: var(--green-light);
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .ing-benefit {
+    padding: 14px 20px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+  }
+  .ing-header .ing-name,
+  .ing-header .ing-benefit {
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── TRUST / WHY US ── */
+  .trust {
+    background: var(--white);
+  }
+  .trust-layout {
+    display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: center;
+  }
+  .trust-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .trust-card {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 28px 24px;
+    border-top: 4px solid var(--green-bright);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .trust-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .trust-icon { font-size: 2rem; margin-bottom: 12px; }
+  .trust-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; color: var(--green-dark);
+    margin-bottom: 8px;
+  }
+  .trust-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+  .founder-box {
+    background: var(--green-dark);
+    border-radius: 12px;
+    padding: 36px 30px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .founder-box::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 10rem;
+    color: rgba(255,255,255,0.06);
+    position: absolute; top: -30px; left: 10px;
+    line-height: 1;
+  }
+  .founder-box p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.9);
+    position: relative;
+  }
+  .founder-box .founder-name {
+    margin-top: 20px;
+    font-style: normal;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green-light);
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+    color: var(--white);
+    text-align: center;
+  }
+  .contact .section-title { color: var(--white); }
+  .contact .section-sub { color: rgba(255,255,255,0.75); margin: 0 auto 50px; }
+  .contact .divider { margin: 18px auto 40px; }
+  .contact-cards {
+    display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 30px 36px;
+    min-width: 220px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .contact-card:hover { background: rgba(255,255,255,0.18); transform: translateY(-4px); }
+  .contact-card .c-icon { font-size: 2rem; margin-bottom: 12px; }
+  .contact-card .c-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--green-light); margin-bottom: 8px;
+  }
+  .contact-card .c-value { font-size: 0.95rem; color: var(--white); line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0e2d1a;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 28px 8%;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+  footer span { color: var(--green-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .why-grid, .products-grid, .plan-layout, .trust-layout, .ingredients-layout {
+      grid-template-columns: 1fr;
+    }
+    .problems-grid { grid-template-columns: 1fr; }
+    .hero-stats { position: static; margin-top: 40px; }
+    .trust-cards { grid-template-columns: 1fr; }
+    .plan-media img { height: 360px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="brand-mark" aria-hidden="true"><img src="hamza-poultry-logo.png" alt=""></div>
+    <span>Hamza's Organic Farm</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#monthly-plan">Monthly Plan</a></li>
+    <li><a href="#ingredients">Feed</a></li>
+    <li><a href="#trust">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="nav-cta" onclick="showPage('checkout');return false;">Start Monthly Plan</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-badge">🌱 100% Organic &amp; Natural</div>
+  <h1>Natural Nutrition.<br><em>Healthier Poultry.</em><br>Trusted Quality.</h1>
+  <p>Hamza's Organic Farm Ltd is committed to healthier poultry production through organic feed, natural immunity support, and sustainable farming practices.</p>
+  <div class="hero-btns">
+    <a href="#products" class="btn-primary">Our Products</a>
+    <a href="#contact" class="btn-outline">Get In Touch</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Organic Feed</span></div>
+    <div class="stat"><span class="stat-num">0</span><span class="stat-label">Growth Hormones</span></div>
+    <div class="stat"><span class="stat-num">19+</span><span class="stat-label">Natural Ingredients</span></div>
+  </div>
+</section>
+
+<!-- WHY ORGANIC -->
+<section class="why-organic" id="about">
+  <div class="why-grid">
+    <div class="why-img reveal">
+      <img src="noiler image.jpg" alt="Organic chickens on a farm">
+      <div class="why-badge">
+        <strong>Bizara</strong>
+        <span>Nigeria's Trusted Farm</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-tag">Why It Matters</div>
+      <h2 class="section-title">Why Organic Farming Makes a Difference</h2>
+      <div class="divider"></div>
+      <p class="section-sub">We combine traditional organic farming with modern poultry management to produce safer, healthier products for families, restaurants, and health-conscious consumers.</p>
+
+      <div class="problems-grid" style="margin-top:32px">
+        <div class="problem-card">
+          <div class="label">❌ Problem</div>
+          <p>Chemical residues remain in meat and eggs from synthetic feeds.</p>
+          <div class="label solution-label" style="margin-top:10px">✅ Our Solution</div>
+          <p>We use only natural feed ingredients and medicinal herbs.</p>
+        </div>
+        <div class="problem-card">
+          <div class="label">❌ Problem</div>
+          <p>Weak bird immunity caused by excessive antibiotic use.</p>
+          <div class="label solution-label" style="margin-top:10px">✅ Our Solution</div>
+          <p>Garlic, ginger, probiotics & fermented water build strong natural immunity.</p>
+        </div>
+        <div class="problem-card">
+          <div class="label">❌ Problem</div>
+          <p>High disease outbreaks and costly drug treatments.</p>
+          <div class="label solution-label" style="margin-top:10px">✅ Our Solution</div>
+          <p>Clean housing, vaccination, and balanced nutrition reduce disease risks.</p>
+        </div>
+        <div class="problem-card">
+          <div class="label">❌ Problem</div>
+          <p>Environmental pollution from synthetic chemical farming.</p>
+          <div class="label solution-label" style="margin-top:10px">✅ Our Solution</div>
+          <p>Organic waste recycling and sustainable farming protect nature.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header reveal">
+    <div class="section-tag">What We Offer</div>
+    <h2 class="section-title">Our Premium Products</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Choose broilers for meat, layers for eggs, or dual-purpose birds. Every bird is raised naturally with clean feed and careful farm management.</p>
+  </div>
+  <div class="products-grid" style="margin-top:50px">
+    <div class="product-card reveal">
+      <div class="product-img">
+        <img src="broiler image.jpg" alt="Healthy white broiler chickens">
+        <div class="product-tag">Meat Bird</div>
+      </div>
+      <div class="product-body">
+        <h3>Organic Broilers</h3>
+        <p>Meat birds raised with balanced natural feed, clean housing, and no growth hormones for healthier, better-tasting chicken.</p>
+      </div>
+      <div class="product-footer">
+        <a href="#contact" class="product-link">Enquire Now →</a>
+        <span class="product-icon">🍗</span>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img">
+        <img src="layer-eggs.png" alt="Fresh eggs from layer chickens">
+        <div class="product-tag">Egg Producer</div>
+      </div>
+      <div class="product-body">
+        <h3>Organic Layers</h3>
+        <p>Egg-producing hens managed for steady laying, strong shells, rich yolks, and dependable supply for homes and food businesses.</p>
+      </div>
+      <div class="product-footer">
+        <a href="#contact" class="product-link">Enquire Now →</a>
+        <span class="product-icon">🥚</span>
+      </div>
+    </div>
+    <div class="product-card reveal">
+      <div class="product-img">
+        <img src="noiler image.jpg" alt="Noilers and Maja">
+        <div class="product-tag">Dual Purpose</div>
+      </div>
+      <div class="product-body">
+        <h3>Noilers / Maja</h3>
+        <p>Dual-purpose birds raised naturally, offering premium meat quality and steady egg production in one breed.</p>
+      </div>
+      <div class="product-footer">
+        <a href="#contact" class="product-link">Enquire Now →</a>
+        <span class="product-icon">🐓</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONTHLY PLAN -->
+<section class="monthly-plan" id="monthly-plan">
+  <div class="plan-layout">
+    <div class="plan-media reveal">
+      <img src="https://images.unsplash.com/photo-1723625449662-3e3590503482?auto=format&fit=crop&w=900&q=80" alt="Healthy chickens raised for monthly customer supply">
+      <div class="plan-ribbon">
+        <strong>Plan Before You Buy</strong>
+        <span>Monthly delivery based on your agreed quantity and bird type.</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-tag">Customer Agreement Plan</div>
+      <h2 class="section-title">Monthly Poultry Supply Made Easier</h2>
+      <div class="divider"></div>
+      <p class="section-sub">To reduce stress and help customers plan their costs, we agree with you first: how many chickens you need, the type of birds you want, and the delivery schedule that works for you.</p>
+
+      <div class="plan-steps">
+        <div class="plan-step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Choose Your Bird Type</h3>
+            <p>Select broilers for meat, layers for eggs, or Noilers/Maja for dual-purpose supply.</p>
+          </div>
+        </div>
+        <div class="plan-step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Agree On Quantity</h3>
+            <p>Tell us how many chickens you need each month, and we plan production around your order.</p>
+          </div>
+        </div>
+        <div class="plan-step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Receive Monthly Delivery</h3>
+            <p>We deliver the agreed birds to you every month, helping families, restaurants, and buyers keep a steady supply.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="plan-note">
+        This plan is based on an agreement with each customer, so pricing, delivery date, and quantity are confirmed before supply starts.
+      </div>
+      <a href="#" class="btn-primary" onclick="showPage('checkout'); return false;">Start a Monthly Plan →</a>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section class="ingredients" id="ingredients">
+  <div class="ingredients-layout">
+    <div class="reveal">
+      <div class="section-tag">Pure & Natural</div>
+      <h2 class="section-title">Our Feed Ingredients</h2>
+      <div class="divider"></div>
+      <p class="ingredients-intro">Every ingredient in our feed is carefully selected for its nutritional benefit and natural properties. No synthetic additives — only what nature provides.</p>
+      <br><br>
+      <div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:24px 20px">
+        <div class="section-tag" style="margin-bottom:8px">Natural Immunity Boosters</div>
+        <p style="color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.8">
+          🧄 <strong style="color:var(--green-light)">Garlic</strong> — Natural antibiotic &amp; immunity booster<br>
+          🫚 <strong style="color:var(--green-light)">Ginger</strong> — Improves digestion &amp; blood circulation<br>
+          🌿 <strong style="color:var(--green-light)">Moringa</strong> — Rich in vitamins, boosts immunity<br>
+          🍃 <strong style="color:var(--green-light)">Neem Leaves</strong> — Natural antiseptic &amp; parasite control<br>
+          💧 <strong style="color:var(--green-light)">Fermented Rice Water</strong> — Healthy gut bacteria
+        </p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="ingredients-table">
+        <div class="ing-row ing-header">
+          <div class="ing-name">Ingredient</div>
+          <div class="ing-benefit">Benefit</div>
+        </div>
+        <div class="ing-row"><div class="ing-name">Maize / Corn</div><div class="ing-benefit">Energy and carbohydrates for healthy growth</div></div>
+        <div class="ing-row"><div class="ing-name">Soybean Meal</div><div class="ing-benefit">Rich protein source for muscle development</div></div>
+        <div class="ing-row"><div class="ing-name">Fish Meal</div><div class="ing-benefit">Protein, amino acids, and omega-3</div></div>
+        <div class="ing-row"><div class="ing-name">Blood Meal</div><div class="ing-benefit">Supports rapid growth and improves iron levels</div></div>
+        <div class="ing-row"><div class="ing-name">Wheat Bran</div><div class="ing-benefit">Improves digestion and provides fiber</div></div>
+        <div class="ing-row"><div class="ing-name">Bone Meal</div><div class="ing-benefit">Strengthens bones with calcium and phosphorus</div></div>
+        <div class="ing-row"><div class="ing-name">Limestone</div><div class="ing-benefit">Supports eggshell formation and bone strength</div></div>
+        <div class="ing-row"><div class="ing-name">Lysine</div><div class="ing-benefit">Improves feed absorption and body development</div></div>
+        <div class="ing-row"><div class="ing-name">Methionine</div><div class="ing-benefit">Supports feather growth and egg production</div></div>
+        <div class="ing-row"><div class="ing-name">Premix</div><div class="ing-benefit">Essential vitamins and minerals</div></div>
+        <div class="ing-row"><div class="ing-name">Enzymes</div><div class="ing-benefit">Help birds digest feed efficiently</div></div>
+        <div class="ing-row"><div class="ing-name">Toxin Binder</div><div class="ing-benefit">Protects birds from harmful mold toxins</div></div>
+        <div class="ing-row"><div class="ing-name">Vegetable Oil</div><div class="ing-benefit">Provides energy and improves feather quality</div></div>
+        <div class="ing-row"><div class="ing-name">Rice Bran</div><div class="ing-benefit">Improves digestion and energy supply</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust" id="trust">
+  <div class="trust-layout">
+    <div>
+      <div class="section-tag reveal">Why Choose Us</div>
+      <h2 class="section-title reveal">Why Customers Trust Hamza's Farm</h2>
+      <div class="divider reveal"></div>
+      <div class="trust-cards">
+        <div class="trust-card reveal">
+          <div class="trust-icon">🏆</div>
+          <h4>Premium Quality</h4>
+          <p>Every product meets high standards of quality through careful oversight at every stage of production.</p>
+        </div>
+        <div class="trust-card reveal">
+          <div class="trust-icon">🔍</div>
+          <h4>Full Transparency</h4>
+          <p>We openly share our feed ingredients, farming methods, and practices so you always know what you're getting.</p>
+        </div>
+        <div class="trust-card reveal">
+          <div class="trust-icon">🐓</div>
+          <h4>Bird Welfare</h4>
+          <p>Our birds are raised in clean, stress-free environments with balanced nutrition and natural immunity support.</p>
+        </div>
+        <div class="trust-card reveal">
+          <div class="trust-icon">🌍</div>
+          <h4>Sustainable Farming</h4>
+          <p>Organic waste recycling and chemical-free farming protect our environment for future generations.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="founder-box">
+        <p>"We believe agriculture should not only feed people but also protect health and preserve nature. Our mission is to provide premium poultry products people can trust with confidence."</p>
+        <p class="founder-name">— Hamza, Founder</p>
+        <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.15)">
+          <div class="section-tag" style="color:var(--green-light);margin-bottom:6px">Our Customers</div>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.7);line-height:1.7">Families · Restaurants · Hotels · Health-Conscious Consumers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <div class="section-tag">Reach Us</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="divider"></div>
+    <p class="section-sub">Whether you're a family, restaurant, or wholesale buyer — we'd love to hear from you. Reach out through any of the channels below.</p>
+  </div>
+  <div class="contact-cards reveal">
+    <div class="contact-card">
+      <div class="c-icon">📍</div>
+      <div class="c-label">Location</div>
+      <div class="c-value">Bizara, Nigeria</div>
+    </div>
+    <div class="contact-card">
+      <div class="c-icon">📞</div>
+      <div class="c-label">Phone</div>
+      <div class="c-value">+234 708 754 4683<br>+234 803 264 7725</div>
+    </div>
+    <div class="contact-card">
+      <div class="c-icon">✉️</div>
+      <div class="c-label">Email</div>
+      <div class="c-value">abdulnasirisah67<br>@gmail.com</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Hamza's Organic Farm Ltd</span> · Bizara, Nigeria · Natural. Sustainable. Trusted.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     CHECKOUT PAGE
+════════════════════════════════════════════════ -->
+<div id="page-checkout" class="page-overlay" style="display:none">
+<style>
+  .page-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--cream);
+    overflow-y: auto;
+  }
+  .co-nav {
+    background: rgba(6,59,34,0.97);
+    padding: 0 5%;
+    height: 70px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 10;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .co-nav-brand {
+    font-family: 'Playfair Display', serif;
+    color: var(--white); font-size: 1.2rem; letter-spacing: 0.5px;
+  }
+  .co-back {
+    background: transparent; border: 1px solid rgba(255,255,255,0.4);
+    color: var(--white); padding: 8px 18px; border-radius: 4px;
+    cursor: pointer; font-size: 0.82rem; letter-spacing: 1px; text-transform: uppercase;
+    font-weight: 700; transition: background 0.2s;
+  }
+  .co-back:hover { background: rgba(255,255,255,0.12); }
+  .co-steps {
+    display: flex; justify-content: center; gap: 0;
+    padding: 24px 5% 0;
+  }
+  .co-step {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .co-step-dot {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: #ddd; color: #888; font-weight: 700; font-size: 0.85rem;
+    display: grid; place-items: center;
+    transition: background 0.3s, color 0.3s;
+  }
+  .co-step.active .co-step-dot { background: var(--green-dark); color: var(--white); }
+  .co-step.done .co-step-dot { background: var(--green-bright); color: var(--white); }
+  .co-step-label { font-size: 0.8rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+  .co-step.active .co-step-label, .co-step.done .co-step-label { color: var(--green-dark); }
+  .co-step-line { width: 60px; height: 2px; background: #ddd; margin: 0 6px; }
+  .co-step.done + .co-step .co-step-line { background: var(--green-bright); }
+
+  .co-body { max-width: 1080px; margin: 0 auto; padding: 40px 5% 80px; }
+  .co-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; color: var(--green-dark);
+    margin-bottom: 6px;
+  }
+  .co-subtitle { color: var(--text-mid); font-size: 0.95rem; margin-bottom: 36px; }
+
+  /* product cards */
+  .co-products { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 22px; margin-bottom: 36px; }
+  .co-prod-card {
+    background: var(--white); border-radius: 16px;
+    border: 1.5px solid rgba(6,59,34,0.12);
+    padding: 0; cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .co-prod-card:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(6,59,34,0.14); }
+  .co-prod-card.selected { border-color: var(--green-bright); box-shadow: 0 0 0 4px rgba(23,138,85,0.13), 0 18px 48px rgba(6,59,34,0.16); }
+  .co-prod-card .check-badge {
+    position: absolute; top: 14px; right: 14px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--green-bright); color: white;
+    display: none; place-items: center; font-size: 0.85rem; font-weight: 900;
+    z-index: 2;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+  }
+  .co-prod-card.selected .check-badge { display: grid; }
+  .co-prod-media {
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+    background: #eef4ec;
+  }
+  .co-prod-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+  .co-prod-card:hover .co-prod-media img { transform: scale(1.05); }
+  .co-prod-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(6,59,34,0.42), transparent 55%);
+  }
+  .co-prod-type {
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+    z-index: 1;
+    background: rgba(255,255,255,0.92);
+    color: var(--green-dark);
+    border-radius: 999px;
+    padding: 5px 10px;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .co-prod-details { padding: 20px; }
+  .co-prod-icon { display: none; }
+  .co-prod-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.18rem; color: var(--green-dark); margin-bottom: 5px;
+  }
+  .co-prod-desc { font-size: 0.8rem; color: var(--text-mid); line-height: 1.5; margin-bottom: 12px; }
+  .co-prod-pricing { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; padding-top: 4px; }
+  .co-price-old { color: #aaa; text-decoration: line-through; font-size: 0.82rem; }
+  .co-price-new { color: var(--green-bright); font-weight: 700; font-size: 1rem; }
+  .co-price-tag {
+    background: #fff2cc; color: #b8860b; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 30px;
+  }
+  .co-delivery-note {
+    font-size: 0.75rem;
+    color: #667468;
+    margin-top: 10px;
+    background: #f0faf5;
+    border: 1px solid rgba(23,138,85,0.16);
+    border-radius: 8px;
+    padding: 8px 10px;
+    line-height: 1.45;
+  }
+  .qty-row {
+    margin-top: 14px !important;
+    padding-top: 14px;
+    border-top: 1px solid #edf0ea;
+  }
+  .qty-input:focus {
+    border-color: var(--green-bright) !important;
+    box-shadow: 0 0 0 3px rgba(23,138,85,0.12);
+  }
+
+  /* quantity + delivery date */
+  .co-section-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; color: var(--green-dark);
+    margin-bottom: 14px; margin-top: 30px;
+  }
+  .co-row { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 20px; }
+  .co-field {
+    flex: 1; min-width: 200px;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .co-field label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-mid); }
+  .co-field input, .co-field select {
+    padding: 12px 14px;
+    border: 1.5px solid #ddd; border-radius: 8px;
+    font-size: 0.95rem; font-family: 'Lato', sans-serif;
+    background: var(--white); color: var(--text-dark);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .co-field input:focus, .co-field select:focus { border-color: var(--green-bright); }
+
+  /* date suggestions */
+  .date-suggestions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .date-pill {
+    padding: 8px 16px; border-radius: 30px;
+    border: 1.5px solid #ddd; background: var(--white);
+    font-size: 0.82rem; font-weight: 700; cursor: pointer;
+    transition: all 0.2s; color: var(--text-dark);
+  }
+  .date-pill:hover { border-color: var(--green-bright); color: var(--green-bright); }
+  .date-pill.active { background: var(--green-dark); border-color: var(--green-dark); color: var(--white); }
+  .date-pill.suggested { border-color: var(--gold); }
+  .date-pill.suggested::after { content: ' ★'; font-size: 0.7rem; color: var(--gold); }
+
+  /* order summary */
+  .co-summary {
+    background: linear-gradient(135deg, var(--green-dark), #0a4f2d); color: var(--white);
+    border-radius: 18px; padding: 28px 28px; margin-top: 36px;
+    box-shadow: 0 18px 46px rgba(6,59,34,0.2);
+  }
+  .co-summary h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--green-light); margin-bottom: 18px; }
+  .co-sum-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; }
+  .co-sum-row:last-child { border-bottom: none; }
+  .co-sum-row.total { font-size: 1.1rem; font-weight: 700; color: var(--gold); padding-top: 14px; }
+  .co-sum-empty { color: rgba(255,255,255,0.45); font-size: 0.88rem; font-style: italic; }
+  .co-free-tag { background: var(--green-bright); color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 30px; letter-spacing: 1px; text-transform: uppercase; }
+  .co-sum-product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .co-sum-product img {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+  .co-sum-product small {
+    display: block;
+    color: rgba(255,255,255,0.58);
+    font-size: 0.72rem;
+    margin-top: 2px;
+  }
+
+  .co-proceed-btn {
+    width: 100%; margin-top: 24px;
+    background: var(--gold); color: var(--text-dark);
+    border: none; border-radius: 8px;
+    padding: 16px; font-size: 1rem; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Lato', sans-serif;
+  }
+  .co-proceed-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,160,23,0.4); }
+  .co-proceed-btn:disabled { background: #ccc; color: #888; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  .co-note { background: #fff8df; border: 1px solid rgba(212,160,23,0.35); border-radius: 10px; padding: 14px 18px; font-size: 0.85rem; color: var(--text-mid); line-height: 1.7; margin-top: 18px; }
+
+  /* ── PAYMENT PAGE ── */
+  #page-payment .co-body { max-width: 700px; }
+  .pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media(max-width:600px) { .pay-grid { grid-template-columns: 1fr; } }
+  .pay-section-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--green-dark); margin: 28px 0 14px; border-bottom: 2px solid var(--green-light); padding-bottom: 6px; }
+  .pay-method-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .pay-tab {
+    flex: 1; min-width: 120px; padding: 14px;
+    border: 2px solid #ddd; border-radius: 10px;
+    background: var(--white); cursor: pointer;
+    text-align: center; transition: all 0.2s;
+  }
+  .pay-tab:hover { border-color: var(--green-bright); }
+  .pay-tab.active { border-color: var(--green-dark); background: var(--green-dark); color: var(--white); }
+  .pay-tab .pay-tab-icon { font-size: 1.5rem; margin-bottom: 4px; }
+  .pay-tab .pay-tab-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px; }
+  .pay-info-box { background: #f0faf5; border: 1px solid var(--green-light); border-radius: 10px; padding: 18px; font-size: 0.88rem; line-height: 1.8; color: var(--text-mid); display: none; }
+  .pay-info-box.visible { display: block; }
+  .pay-info-box strong { color: var(--green-dark); }
+  .success-screen {
+    text-align: center; padding: 60px 20px;
+    display: none;
+  }
+  .success-screen.visible { display: block; }
+  .success-icon { font-size: 5rem; margin-bottom: 20px; animation: bounceIn 0.5s ease; }
+  @keyframes bounceIn { 0%{transform:scale(0)} 70%{transform:scale(1.1)} 100%{transform:scale(1)} }
+  .success-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--green-dark); margin-bottom: 10px; }
+  .success-sub { color: var(--text-mid); font-size: 1rem; line-height: 1.7; margin-bottom: 28px; }
+  .success-ref { background: var(--green-dark); color: var(--green-light); padding: 14px 24px; border-radius: 8px; font-family: monospace; font-size: 1rem; display: inline-block; margin-bottom: 28px; letter-spacing: 2px; }
+  .order-review-card { background: var(--white); border-radius: 16px; border: 1.5px solid #e0e0e0; padding: 22px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(6,59,34,0.08); }
+  .order-review-row { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.88rem; color: var(--text-mid); }
+  .order-review-row:last-child { border-bottom: none; }
+  .order-review-row span:last-child { font-weight: 700; color: var(--text-dark); }
+  .order-review-product {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .order-review-product img {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .submit-pay-btn {
+    width: 100%; margin-top: 28px;
+    background: linear-gradient(135deg, var(--green-dark), var(--green-bright));
+    color: var(--white); border: none; border-radius: 8px;
+    padding: 18px; font-size: 1rem; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .submit-pay-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+  .secure-note { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 12px; font-size: 0.78rem; color: #888; }
+</style>
+
+  <!-- NAV -->
+  <div class="co-nav">
+    <span class="co-nav-brand">🌱 Hamza's Organic Farm</span>
+    <button class="co-back" onclick="showPage('main')">← Back to Site</button>
+  </div>
+
+  <!-- STEPS -->
+  <div class="co-steps">
+    <div class="co-step active" id="step1">
+      <div class="co-step-dot">1</div>
+      <div class="co-step-label">Build Order</div>
+    </div>
+    <div class="co-step-line"></div>
+    <div class="co-step" id="step2">
+      <div class="co-step-dot">2</div>
+      <div class="co-step-label">Your Details</div>
+    </div>
+    <div class="co-step-line"></div>
+    <div class="co-step" id="step3">
+      <div class="co-step-dot">3</div>
+      <div class="co-step-label">Payment</div>
+    </div>
+  </div>
+
+  <div class="co-body">
+    <h2 class="co-title">Build Your Monthly Plan</h2>
+    <p class="co-subtitle">Choose your products, set quantities, and pick your preferred delivery date each month.</p>
+
+    <!-- PRODUCTS -->
+    <div class="co-products" id="co-products">
+
+      <div class="co-prod-card" data-product="broiler" onclick="toggleProduct(this)">
+        <div class="check-badge">✓</div>
+        <div class="co-prod-media">
+          <img src="broiler image.jpg" alt="Healthy white broiler chickens">
+          <div class="co-prod-type">Meat Bird</div>
+        </div>
+        <div class="co-prod-details">
+          <div class="co-prod-icon">🍗</div>
+          <div class="co-prod-name">Organic Broilers</div>
+          <div class="co-prod-desc">Premium meat birds raised on organic feed, no hormones.</div>
+          <div class="co-prod-pricing">
+            <span class="co-price-old">₦13,000</span>
+            <span class="co-price-new">₦10,000</span>
+            <span class="co-price-tag">Save ₦3,000</span>
+          </div>
+          <div class="co-delivery-note">Delivery & customer service: ₦1,800 flat per order.</div>
+          <div style="margin-top:10px;display:none" class="qty-row">
+            <label style="font-size:0.75rem;font-weight:700;color:var(--text-mid);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px">Quantity</label>
+            <input type="number" min="1" value="1" class="qty-input" onclick="event.stopPropagation()" oninput="updateSummary()" style="width:100%;padding:9px 12px;border:1.5px solid #ddd;border-radius:7px;font-size:0.95rem;font-family:'Lato',sans-serif;outline:none">
+          </div>
+        </div>
+      </div>
+
+      <div class="co-prod-card" data-product="eggs" onclick="toggleProduct(this)">
+        <div class="check-badge">✓</div>
+        <div class="co-prod-media">
+          <img src="layer-eggs.png" alt="Fresh eggs from layer chickens">
+          <div class="co-prod-type">Egg Producer</div>
+        </div>
+        <div class="co-prod-details">
+          <div class="co-prod-icon">🥚</div>
+          <div class="co-prod-name">Crate of Eggs</div>
+          <div class="co-prod-desc">Fresh eggs from our organic layers — rich yolks, strong shells.</div>
+          <div class="co-prod-pricing">
+            <span class="co-price-old">₦5,500</span>
+            <span class="co-price-new">₦5,000</span>
+            <span class="co-price-tag">Save ₦500</span>
+          </div>
+          <div class="co-delivery-note">Delivery & customer service: ₦1,800 flat per order.</div>
+          <div style="margin-top:10px;display:none" class="qty-row">
+            <label style="font-size:0.75rem;font-weight:700;color:var(--text-mid);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px">Crates</label>
+            <input type="number" min="1" value="1" class="qty-input" onclick="event.stopPropagation()" oninput="updateSummary()" style="width:100%;padding:9px 12px;border:1.5px solid #ddd;border-radius:7px;font-size:0.95rem;font-family:'Lato',sans-serif;outline:none">
+          </div>
+        </div>
+      </div>
+
+      <div class="co-prod-card" data-product="noiler" onclick="toggleProduct(this)">
+        <div class="check-badge">✓</div>
+        <div class="co-prod-media">
+          <img src="noiler image.jpg" alt="Noilers and Maja">
+          <div class="co-prod-type">Dual Purpose</div>
+        </div>
+        <div class="co-prod-details">
+          <div class="co-prod-icon">🐓</div>
+          <div class="co-prod-name">Noilers / Maja</div>
+          <div class="co-prod-desc">Dual-purpose birds — premium meat quality and egg production.</div>
+          <div class="co-prod-pricing">
+            <span class="co-price-old">₦30,000</span>
+            <span class="co-price-new">₦24,800</span>
+            <span class="co-price-tag">Save ₦5,200</span>
+          </div>
+          <div class="co-delivery-note">Delivery & customer service: ₦1,800 flat per order.</div>
+          <div style="margin-top:10px;display:none" class="qty-row">
+            <label style="font-size:0.75rem;font-weight:700;color:var(--text-mid);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px">Quantity</label>
+            <input type="number" min="1" value="1" class="qty-input" onclick="event.stopPropagation()" oninput="updateSummary()" style="width:100%;padding:9px 12px;border:1.5px solid #ddd;border-radius:7px;font-size:0.95rem;font-family:'Lato',sans-serif;outline:none">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DELIVERY DATE -->
+    <div class="co-section-label">📅 Preferred Monthly Delivery Date</div>
+    <p style="font-size:0.85rem;color:var(--text-mid);margin-bottom:14px">We recommend the <strong>29th</strong> or <strong>1st of each month</strong> for best planning. You can also choose a custom date below.</p>
+    <div class="date-suggestions">
+      <div class="date-pill suggested active" data-date="29" onclick="selectDate(this, '29')">29th (Recommended)</div>
+      <div class="date-pill suggested" data-date="1" onclick="selectDate(this, '1')">1st of Month (Recommended)</div>
+      <div class="date-pill" data-date="5" onclick="selectDate(this, '5')">5th</div>
+      <div class="date-pill" data-date="10" onclick="selectDate(this, '10')">10th</div>
+      <div class="date-pill" data-date="15" onclick="selectDate(this, '15')">15th</div>
+      <div class="date-pill" data-date="20" onclick="selectDate(this, '20')">20th</div>
+      <div class="date-pill" data-date="other" onclick="selectDate(this, 'other')">Other Date</div>
+    </div>
+    <div id="custom-date-row" style="display:none;margin-top:10px">
+      <div class="co-field" style="max-width:200px">
+        <label>Enter Day of Month (1–28)</label>
+        <input type="number" min="1" max="28" id="custom-date-input" placeholder="e.g. 22" oninput="updateSummary()">
+      </div>
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="co-summary">
+      <h3>📋 Order Summary</h3>
+      <div id="summary-items">
+        <div class="co-sum-empty">Select products above to see your summary.</div>
+      </div>
+    </div>
+
+    <div class="co-note">
+      ℹ️ This plan is a monthly agreement. Your order will be confirmed by our team before delivery begins. Bulk orders of 10+ birds qualify for <strong>free delivery</strong>.
+    </div>
+
+    <button class="co-proceed-btn" id="proceed-btn" onclick="proceedToDetails()" disabled>
+      Continue to Your Details →
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAYMENT / DETAILS PAGE
+════════════════════════════════════════════════ -->
+<div id="page-payment" class="page-overlay" style="display:none">
+  <div class="co-nav">
+    <span class="co-nav-brand">🌱 Hamza's Organic Farm</span>
+    <button class="co-back" onclick="showPage('checkout')">← Back to Order</button>
+  </div>
+  <div class="co-steps">
+    <div class="co-step done" id="pay-step1">
+      <div class="co-step-dot">✓</div>
+      <div class="co-step-label">Build Order</div>
+    </div>
+    <div class="co-step-line"></div>
+    <div class="co-step active" id="pay-step2">
+      <div class="co-step-dot">2</div>
+      <div class="co-step-label">Your Details</div>
+    </div>
+    <div class="co-step-line"></div>
+    <div class="co-step" id="pay-step3">
+      <div class="co-step-dot">3</div>
+      <div class="co-step-label">Payment</div>
+    </div>
+  </div>
+
+  <div class="co-body">
+    <!-- SUCCESS SCREEN -->
+    <div class="success-screen" id="success-screen">
+      <div class="success-icon">🎉</div>
+      <div class="success-title">Order Placed Successfully!</div>
+      <div class="success-sub">Thank you for choosing Hamza's Organic Farm. Our team will contact you within 24 hours to confirm your monthly plan details and delivery schedule.</div>
+      <div class="success-ref" id="order-ref">HOF-000000</div>
+      <p style="color:var(--text-mid);font-size:0.9rem;margin-bottom:24px">Save your reference number above. We'll also send confirmation to your phone/email.</p>
+      <button class="co-proceed-btn" style="max-width:300px;margin:0 auto;display:block" onclick="showPage('main')">← Return to Website</button>
+    </div>
+
+    <!-- FORM -->
+    <div id="pay-form-area">
+      <h2 class="co-title">Your Details & Payment</h2>
+      <p class="co-subtitle">Complete your information below so we can process your monthly plan.</p>
+
+      <!-- ORDER REVIEW -->
+      <div class="order-review-card" id="order-review-card">
+        <div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--green-dark);margin-bottom:14px;font-weight:700">📦 Your Order</div>
+        <div id="pay-order-review"></div>
+      </div>
+
+      <!-- PERSONAL DETAILS -->
+      <div class="pay-section-title">👤 Personal Information</div>
+      <div class="pay-grid">
+        <div class="co-field">
+          <label>Full Name *</label>
+          <input type="text" id="pay-name" placeholder="e.g. Aisha Mohammed">
+        </div>
+        <div class="co-field">
+          <label>Phone Number *</label>
+          <input type="tel" id="pay-phone" placeholder="+234 000 000 0000">
+        </div>
+        <div class="co-field">
+          <label>Email Address</label>
+          <input type="email" id="pay-email" placeholder="optional — for receipt">
+        </div>
+        <div class="co-field">
+          <label>State / City *</label>
+          <input type="text" id="pay-city" placeholder="e.g. Abuja, FCT">
+        </div>
+      </div>
+      <div class="co-field" style="margin-bottom:0">
+        <label>Delivery Address *</label>
+        <input type="text" id="pay-address" placeholder="Full delivery address">
+      </div>
+
+      <!-- PAYMENT METHOD -->
+      <div class="pay-section-title">💳 Payment Method</div>
+      <div class="pay-method-tabs">
+        <div class="pay-tab active" onclick="selectPayMethod(this,'transfer')">
+          <div class="pay-tab-icon">🏦</div>
+          <div class="pay-tab-label">Bank Transfer</div>
+        </div>
+        <div class="pay-tab" onclick="selectPayMethod(this,'ussd')">
+          <div class="pay-tab-icon">📱</div>
+          <div class="pay-tab-label">USSD / Mobile</div>
+        </div>
+        <div class="pay-tab" onclick="selectPayMethod(this,'cash')">
+          <div class="pay-tab-icon">💵</div>
+          <div class="pay-tab-label">Pay on Delivery</div>
+        </div>
+      </div>
+
+      <div class="pay-info-box visible" id="pay-info-transfer">
+        <strong>Bank Transfer Details</strong><br>
+        Bank: <strong>Access Bank</strong><br>
+        Account Name: <strong>Hamza's Organic Farm Ltd</strong><br>
+        Account Number: <strong>0123456789</strong><br><br>
+        Please use your <strong>phone number</strong> as the transfer narration so we can match your payment. Send your receipt via WhatsApp to <strong>+234 708 754 4683</strong>.
+      </div>
+      <div class="pay-info-box" id="pay-info-ussd">
+        <strong>USSD / Mobile Banking</strong><br>
+        Transfer using your bank's USSD code:<br>
+        GTBank: <code>*737*1*Amount*0123456789#</code><br>
+        Access: <code>*901*Amount*0123456789#</code><br>
+        Zenith: <code>*966*Amount*0123456789#</code><br><br>
+        Use your <strong>phone number</strong> as narration, then send confirmation to <strong>+234 708 754 4683</strong>.
+      </div>
+      <div class="pay-info-box" id="pay-info-cash">
+        <strong>Pay on Delivery</strong><br>
+        No upfront payment needed. Our delivery agent will collect payment when your order arrives at your address. <br><br>
+        ⚠️ Available only within <strong>Bizara and surrounding areas</strong>. Our team will confirm availability when they contact you.
+      </div>
+
+      <!-- ADDITIONAL NOTE -->
+      <div class="pay-section-title">📝 Additional Note (Optional)</div>
+      <div class="co-field">
+        <label>Special instructions or requests</label>
+        <input type="text" id="pay-note" placeholder="e.g. Call before arrival, gate code, etc.">
+      </div>
+
+      <button class="submit-pay-btn" onclick="submitOrder()">
+        🔒 Confirm & Submit Monthly Plan
+      </button>
+      <div class="secure-note">🔒 Your information is secure and only used to process your order</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Page router ──
+function showPage(page) {
+  document.getElementById('page-checkout').style.display = 'none';
+  document.getElementById('page-payment').style.display = 'none';
+  if (page === 'checkout') {
+    document.getElementById('page-checkout').style.display = 'block';
+    document.getElementById('page-checkout').scrollTop = 0;
+    updateSummary();
+  } else if (page === 'payment') {
+    document.getElementById('page-payment').style.display = 'block';
+    document.getElementById('page-payment').scrollTop = 0;
+    buildOrderReview();
+  }
+  // 'main' = just hide overlays
+}
+
+// ── Product data ──
+const PRODUCTS = {
+  broiler: { name: 'Organic Broilers', price: 10000, delivery: 1859, freeDeliveryAt: 10, unit: 'bird' },
+  eggs:    { name: 'Crate of Eggs',    price: 5000,  delivery: 1200, freeDeliveryAt: 10, unit: 'crate' },
+  noiler:  { name: 'Noilers / Maja',   price: 24800, delivery: 0,    freeDeliveryAt: 0,  unit: 'bird' }
+};
+
+let selectedDate = '29';
+
+function toggleProduct(card) {
+  card.classList.toggle('selected');
+  const qtyRow = card.querySelector('.qty-row');
+  qtyRow.style.display = card.classList.contains('selected') ? 'block' : 'none';
+  updateSummary();
+}
+
+function selectDate(pill, date) {
+  document.querySelectorAll('.date-pill').forEach(p => p.classList.remove('active'));
+  pill.classList.add('active');
+  selectedDate = date;
+  const customRow = document.getElementById('custom-date-row');
+  customRow.style.display = date === 'other' ? 'block' : 'none';
+  updateSummary();
+}
+
+function getQty(card) {
+  const input = card.querySelector('.qty-input');
+  return input ? (parseInt(input.value) || 1) : 1;
+}
+
+function updateSummary() {
+  const selected = document.querySelectorAll('.co-prod-card.selected');
+  const container = document.getElementById('summary-items');
+  const btn = document.getElementById('proceed-btn');
+
+  if (selected.length === 0) {
+    container.innerHTML = '<div class="co-sum-empty">Select products above to see your summary.</div>';
+    btn.disabled = true;
+    return;
+  }
+
+  let rows = '';
+  let total = 0;
+  selected.forEach(card => {
+    const pid = card.dataset.product;
+    const p = PRODUCTS[pid];
+    const qty = getQty(card);
+    const subtotal = p.price * qty;
+    const isFreeDelivery = p.delivery === 0 || qty >= p.freeDeliveryAt;
+    const deliveryTotal = isFreeDelivery ? 0 : p.delivery * qty;
+    const lineTotal = subtotal + deliveryTotal;
+    total += lineTotal;
+
+    // Show bulk note
+    const bulkNote = card.querySelector('.bulk-note');
+    if (bulkNote) bulkNote.style.display = (qty >= p.freeDeliveryAt && p.delivery > 0) ? 'block' : 'none';
+
+    rows += `<div class="co-sum-row"><span>${p.name} × ${qty}</span><span>₦${subtotal.toLocaleString()}</span></div>`;
+    if (p.delivery > 0) {
+      if (isFreeDelivery) {
+        rows += `<div class="co-sum-row" style="font-size:0.8rem;color:rgba(255,255,255,0.6)"><span>Delivery</span><span><span class="co-free-tag">FREE</span></span></div>`;
+      } else {
+        rows += `<div class="co-sum-row" style="font-size:0.8rem;color:rgba(255,255,255,0.6)"><span>Delivery (${qty} ${p.unit}s)</span><span>₦${deliveryTotal.toLocaleString()}</span></div>`;
+      }
+    } else {
+      rows += `<div class="co-sum-row" style="font-size:0.8rem;color:rgba(255,255,255,0.6)"><span>Delivery</span><span><span class="co-free-tag">FREE</span></span></div>`;
+    }
+  });
+
+  // Delivery date
+  let dateLabel = selectedDate === 'other'
+    ? (document.getElementById('custom-date-input')?.value ? `${document.getElementById('custom-date-input').value}th of each month` : 'Custom date (enter above)')
+    : `${selectedDate}${selectedDate==='1'?'st':selectedDate==='29'?'th':'th'} of each month`;
+
+  rows += `<div class="co-sum-row" style="font-size:0.82rem;color:rgba(255,255,255,0.55)"><span>Delivery Date</span><span>${dateLabel}</span></div>`;
+  rows += `<div class="co-sum-row total"><span>Monthly Total</span><span>₦${total.toLocaleString()}</span></div>`;
+
+  container.innerHTML = rows;
+  btn.disabled = false;
+}
+
+function proceedToDetails() {
+  showPage('payment');
+}
+
+// ── Payment page ──
+function buildOrderReview() {
+  const selected = document.querySelectorAll('.co-prod-card.selected');
+  let html = '';
+  let total = 0;
+  selected.forEach(card => {
+    const pid = card.dataset.product;
+    const p = PRODUCTS[pid];
+    const qty = getQty(card);
+    const subtotal = p.price * qty;
+    const isFreeDelivery = p.delivery === 0 || qty >= p.freeDeliveryAt;
+    const deliveryTotal = isFreeDelivery ? 0 : p.delivery * qty;
+    total += subtotal + deliveryTotal;
+    html += `<div class="order-review-row"><span>${p.name} × ${qty}</span><span>₦${(subtotal+deliveryTotal).toLocaleString()}</span></div>`;
+  });
+  html += `<div class="order-review-row" style="font-weight:700;color:var(--green-dark);font-size:1rem"><span>Monthly Total</span><span>₦${total.toLocaleString()}</span></div>`;
+  document.getElementById('pay-order-review').innerHTML = html;
+
+  // step indicator
+  document.getElementById('pay-step2').classList.add('active');
+}
+
+function selectPayMethod(tab, method) {
+  document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  document.querySelectorAll('.pay-info-box').forEach(b => b.classList.remove('visible'));
+  document.getElementById('pay-info-' + method).classList.add('visible');
+}
+
+function submitOrder() {
+  const name = document.getElementById('pay-name').value.trim();
+  const phone = document.getElementById('pay-phone').value.trim();
+  const city = document.getElementById('pay-city').value.trim();
+  const address = document.getElementById('pay-address').value.trim();
+  if (!name || !phone || !city || !address) {
+    alert('Please fill in all required fields (Name, Phone, City, Delivery Address).');
+    return;
+  }
+  // Generate ref
+  const ref = 'HOF-' + Math.floor(100000 + Math.random() * 900000);
+  document.getElementById('order-ref').textContent = ref;
+  document.getElementById('pay-form-area').style.display = 'none';
+  document.getElementById('success-screen').classList.add('visible');
+  document.getElementById('page-payment').scrollTop = 0;
+  // Update step
+  document.getElementById('pay-step2').classList.remove('active');
+  document.getElementById('pay-step2').classList.add('done');
+  document.getElementById('pay-step3').classList.add('active', 'done');
+}
+</script>
+</body>
+</html>
